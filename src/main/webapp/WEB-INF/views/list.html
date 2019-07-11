@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+
+</head>
+<body>
+<center>
+<div id="listDiv">
+<h1 class="title">Products List</h1>
+<form >
+<a href="/show-product-form" class="link">Create New Product</a>
+<br>
+    <br>
+    <br>
+<form th:action="@{/search-product}">
+    <input type="text" th:name="name">
+    <input type="submit" th:value="Search">
+</form>
+    <br>
+    <br>
+
+<table border="2px" th:width="400px">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Desscription</td>
+        <td>Avatar</td>
+        <td>View</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+
+    <tr th:each="product,rowStat : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+        <td><img th:src="@{'/images/'+${product.getAvatar()}}" alt=""></td>
+        <td><a th:href="@{/product-detail/__${product.id}__}">detail</a></td>
+        <td><a th:href="@{/product-edit/__${product.id}__}">edit</a></td>
+        <td><a th:href="@{/product-delete/__${product.id}__}">delete</a></td>
+
+    </tr>
+</table>
+
+</form>
+</div>
+    <br>
+    <br>
+<footer th:replace="layout :: footer" id="footer"></footer>
+</center>
+</body>
+</html>
