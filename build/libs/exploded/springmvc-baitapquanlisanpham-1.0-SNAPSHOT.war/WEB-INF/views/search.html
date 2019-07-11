@@ -16,6 +16,7 @@
             <p th:text="${product.id}"></p>
             <p th:text="${product.name}"></p>
             <p th:text="${product.price}"></p>
+            <p><img th:src="@{'/images/'+${product.getAvatar()}}" alt=""></p>
         </div>
     </div>
 </div>

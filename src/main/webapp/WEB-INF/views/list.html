@@ -7,17 +7,15 @@
 <center>
 <div id="listDiv">
 <h1 class="title">Products List</h1>
-<form >
 <a href="/show-product-form" class="link">Create New Product</a>
 <br>
     <br>
     <br>
-<form th:action="@{/search-product}">
-    <input type="text" th:name="name">
+<form th:action="@{/search-product}" method="get" novalidate="novalidate">
+    <input type="text" th:name="name" placeholder="input name...">
     <input type="submit" th:value="Search">
 </form>
-    <br>
-    <br>
+
 
 <table border="2px" th:width="400px">
     <tr>
@@ -44,7 +42,6 @@
     </tr>
 </table>
 
-</form>
 </div>
     <br>
     <br>
